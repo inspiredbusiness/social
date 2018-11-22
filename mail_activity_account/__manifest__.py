@@ -14,4 +14,5 @@
     "data": [
         "views/account.xml"
     ],
+    'auto_install': True,
 }

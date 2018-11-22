@@ -14,4 +14,5 @@
     "data": [
         "views/sale.xml"
     ],
+    'auto_install': True,
 }

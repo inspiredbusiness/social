@@ -14,4 +14,5 @@
     "data": [
         "views/helpdesk_ticket.xml"
     ],
+    'auto_install': True,
 }
