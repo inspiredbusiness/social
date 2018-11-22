@@ -99,4 +99,4 @@ def post_init_hook(cr, registry):
         env = api.Environment(cr, SUPERUSER_ID, {})
         convert_crm_activity_types(env)
         convert_crm_lead_activities(env)
-        delete_crm_activities(env)
+        # delete_crm_activities(env)  # TODO: Add this back in after more testing has been completed before moving data that only needs to be removed before migration
