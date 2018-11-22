@@ -1,8 +1,8 @@
 <odoo>
     <record model="ir.ui.view" id="view_form_mail_activity">
-        <field name="name">sale.order.form.inherit.mail.activity</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="name">purchase.order.form.inherit.mail.activity</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="arch" type="xml">
             <xpath expr="//div[@class='oe_chatter']/field[@name='message_follower_ids']" position="after">
                 <field name="activity_ids" widget="mail_activity" />
@@ -11,9 +11,9 @@
     </record>
 
      <record model="ir.ui.view" id="view_kanban_mail_activity">
-        <field name="name">sale.order.kanban.inherit.mail.activity</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_sale_order_kanban"/>
+        <field name="name">purchase.order.kanban.inherit.mail.activity</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_kanban"/>
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="activity_ids"/>

@@ -1,8 +1,8 @@
 <odoo>
     <record model="ir.ui.view" id="view_form_mail_activity">
-        <field name="name">sale.order.form.inherit.mail.activity</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="name">project.task.form.inherit.mail.activity</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
             <xpath expr="//div[@class='oe_chatter']/field[@name='message_follower_ids']" position="after">
                 <field name="activity_ids" widget="mail_activity" />
@@ -10,16 +10,16 @@
         </field>
     </record>
 
-     <record model="ir.ui.view" id="view_kanban_mail_activity">
-        <field name="name">sale.order.kanban.inherit.mail.activity</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_sale_order_kanban"/>
+    <record model="ir.ui.view" id="view_kanban_mail_activity">
+        <field name="name">project.task.kanban.inherit.mail.activity</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
         <field name="arch" type="xml">
-            <field name="name" position="after">
+            <field name="message_needaction_counter" position="after">
                 <field name="activity_ids"/>
                 <field name="nbr_activities"/>
             </field>
-             <xpath expr="//div[@t-attf-class='oe_kanban_card oe_kanban_global_click']" position="inside">
+             <xpath expr="//div[@class='oe_kanban_content']" position="inside">
                  Next activity:
                 <div class="text-muted">
                     <t t-if="record.activity_date_deadline.raw_value and record.activity_date_deadline.raw_value lt (new Date())" t-set="red">oe_kanban_text_red</t>
@@ -35,4 +35,5 @@
             </xpath>
         </field>
     </record>
+
 </odoo>

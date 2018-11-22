@@ -9,4 +9,30 @@
             </xpath>
         </field>
     </record>
+
+     <record model="ir.ui.view" id="view_kanban_mail_activity">
+        <field name="name">helpdesk.ticket.kanban.inherit.mail.activity</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_kanban"/>
+        <field name="arch" type="xml">
+            <field name="message_needaction_counter" position="after">
+                <field name="activity_ids"/>
+                <field name="nbr_activities"/>
+            </field>
+             <xpath expr="//div[@class='oe_kanban_content']" position="inside">
+                 Next activity:
+                <div class="text-muted">
+                    <t t-if="record.activity_date_deadline.raw_value and record.activity_date_deadline.raw_value lt (new Date())" t-set="red">oe_kanban_text_red</t>
+                    <span t-attf-class="#{red || ''}">
+                        <field name="activity_date_deadline"/>
+                        <t t-if="record.activity_date_deadline.raw_value"> : </t>
+                        <field name="activity_summary"/>
+                    </span>
+                </div>
+                <div t-if="record.nbr_activities.raw_value">
+                    <field name="activity_ids" widget="kanban_activity"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
 </odoo>
