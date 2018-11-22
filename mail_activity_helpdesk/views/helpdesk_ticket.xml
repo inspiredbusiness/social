@@ -1,0 +1,12 @@
+<odoo>
+    <record model="ir.ui.view" id="view_form_mail_activity">
+        <field name="name">helpdesk.ticket.form.inherit.mail.activity</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_chatter']/field[@name='message_follower_ids']" position="after">
+                <field name="activity_ids" widget="mail_activity" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
